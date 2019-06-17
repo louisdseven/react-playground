@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from './state/Tabs';
+// import Tabs from './state/Tabs';
 
 const tabsProp = [
   { name: 'First tab',
@@ -32,4 +32,4 @@ class Tabs extends React.Component {
   }
 }
 
-export default App;
+export default Tabs;

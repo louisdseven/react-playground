@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from './state/Tabs'
+import Tabs from './state/Tabs';
 
 const tabsProp = [
   { name: 'First tab',
@@ -20,11 +20,14 @@ class Tabs extends React.Component {
     ))
     return (
       <div>
-        {buttons}
-        <div className='content'>
-          {currentTab.content}
-        </div>
-      </div>
+  {buttons}
+  {/* only show content when the tabs array has length */}
+  {this.props.tabs.length && (
+    <div className='content'>
+      {currentTab.content}
+    </div>
+  )}
+</div>
     )
   }
 }

@@ -1,33 +1,32 @@
 import React from 'react';
-import './App.css';
-import TheDate from './state/TheDate';
-import Counter from './state/Counter';
-import HelloWorld from './state-drills/HelloWorld';
-import Bomb from './state-drills/Bomb';
-import RouletteGun from './state-drills/RouletteGun';
+import Tabs from './state/Tabs'
 
-const milliseconds = 1000
-setInterval(
-  function callback() {
-    // update the state.date in here
-  },
-  milliseconds
-)
+const tabsProp = [
+  { name: 'First tab',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque.' },
+  { name: 'Second tab',
+    content: 'Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { name: 'Third tab',
+    content: 'Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur.' },
+];
 
-function App() {
-  return (
-    <main className='App'>
-      <TheDate />
-      <br />
-      <Counter count={123} />
-      <br />
-      <HelloWorld />
-      <br />
-      <Bomb />
-      <br />
-      <RouletteGun />
-    </main>
-  )
+class Tabs extends React.Component {
+  static defaultProps = { tabs: [] };
+  render() {
+    const buttons = this.props.tabs.map((tab, index) => (
+      <button key={index}>
+        {tab.name}
+      </button>
+    ))
+    return (
+      <div>
+        {buttons}
+        <div className='content'>
+          {currentTab.content}
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;

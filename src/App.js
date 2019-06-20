@@ -1,6 +1,7 @@
-import React from 'react';
-// import Tabs from './state/Tabs';
+import React from "react";
+import Tabs from './state/Tabs';
 
+// array of objects each with a name and content
 const tabsProp = [
   { name: 'First tab',
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque.' },
@@ -10,26 +11,12 @@ const tabsProp = [
     content: 'Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur.' },
 ];
 
-class Tabs extends React.Component {
-  static defaultProps = { tabs: [] };
+class App extends React.Component {
   render() {
-    const buttons = this.props.tabs.map((tab, index) => (
-      <button key={index}>
-        {tab.name}
-      </button>
-    ))
-    return (
-      <div>
-  {buttons}
-  {/* only show content when the tabs array has length */}
-  {this.props.tabs.length && (
-    <div className='content'>
-      {currentTab.content}
+    return <div>
+      <Tabs tabs={tabsProp} />
     </div>
-  )}
-</div>
-    )
   }
 }
 
-export default Tabs;
+export default App;
